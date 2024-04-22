@@ -21,7 +21,7 @@
 
 <body class="bcgrd_image">
 
-  <h1 class="d-flex justify-content-center bg-primary rounded mt-3 text-center" style="width: 50%; margin: auto;">𝓕𝓐𝓝 𝓕𝓐𝓥𝓞𝓤𝓡𝓘𝓣𝓔𝓢</h1>
+  <h1 class="d-flex justify-content-center bg-<?php echo $theme ?> text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?> rounded mt-3 text-center" style="width: 50%; margin: auto;">𝓕𝓐𝓝 𝓕𝓐𝓥𝓞𝓤𝓡𝓘𝓣𝓔𝓢</h1>
   <div id="carousel" class="carousel slide mt-3">
     <div class="carousel-inner">
       <div class="carousel-item active">

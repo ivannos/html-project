@@ -1,13 +1,13 @@
-  <footer class="bg-dark text-light text-center py-3">
+  <footer class="bg-<?php echo $theme ?> text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?> text-center py-3">
     <div class="container">
         <p class="mb-0">&copy; 2023 Reel Rover: Unleashing Cinematic Adventures, One Frame at a Time! All rights reserved.</p>
         <p class="mb-0">Contact us: <a href="mailto:eelRover@mooail.com">ReelRover@mooail.com</a> <a href="tel:+421859220275">+421859220275</a></p>
         <p class="mb-0">
-          <button type="button" class="btn btn-primary text-dark" data-bs-toggle="modal" data-bs-target="#PP">
+          <button type="button" class="text-<?php echo $theme ?> btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>" data-bs-toggle="modal" data-bs-target="#PP">
             Privacy Policy
           </button>
           |
-          <button type="button" class="btn btn-primary text-dark" data-bs-toggle="modal" data-bs-target="#TOS">
+          <button type="button" class="text-<?php echo $theme ?> btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>" data-bs-toggle="modal" data-bs-target="#TOS">
             Terms of Service
           </button>
         </p>
@@ -16,7 +16,7 @@
 
   <div class="modal fade" id="PP" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="bg-dark text-light modal-content">
+      <div class="bg-<?php echo $theme ?> text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?> modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Privacy Policy</h4>
           <p class="modal-title">Last Updated: 23. 10. 2023</p>
@@ -49,7 +49,7 @@
           <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with the revised date.</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="text-dark btn btn-primary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?> btn btn-<?php echo $theme ?>" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@
 
   <div class="modal fade" id="TOS" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="bg-dark text-light modal-content">
+      <div class="bg-<?php echo $theme ?> text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?> modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Terms of Service</h4>
           <p class="modal-title">Last Updated: 23. 10. 2023</p>
@@ -80,7 +80,7 @@
           <h5>7. Governing Law</h5>
           <p>These Terms of Service are governed by and construed in accordance with the laws of Slovakia, without regard to its conflict of law provisions.</p>
         <div class="modal-footer">
-          <button type="button" class="text-dark btn btn-primary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?> btn btn-<?php echo $theme ?>" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>

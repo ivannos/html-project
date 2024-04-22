@@ -1,43 +1,28 @@
 <?php
 namespace filmfacts;
 
+error_reporting(E_ALL);
+ini_set("display_errors", "On");
 // Definujeme konštantu __ROOT__, ktorá obsahuje cestu k nadradenému adresáru
 define('__ROOT__', dirname(dirname(__FILE__)));
 // Načítavame súbor s konfiguráciou databázy
 require_once(__ROOT__.'/db/config.php');
+require_once(__ROOT__.'/classes/Database.php');
 // Importujeme triedu PDO pre prácu s databázou
+
 use PDO;
+use Database;
 
 // Definujeme triedu QnA v rámci namespace otazkyodpovede
-class FilmFacts{
+class FilmFacts extends Database {
     // Privátna premenná pre uchovávanie spojenia s databázou
-    private $conn;
+    protected $conn;
 
     // Konštruktor triedy, ktorý automaticky volá metódu connect() pri vytvorení objektu
     public function __construct() {
         $this->connect();
-    }
 
-    // Privátna metóda na pripojenie k databáze pomocou PDO
-    private function connect() {
-        // Načítame konfiguráciu databázy zo súboru config.php
-        $config = DATABASE;
-
-        // Nastavenie možností PDO pre spracovanie chýb a formátovanie výsledkov
-        $options = array(
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        );
-
-        // Pokúšame sa pripojiť k databáze pomocou PDO
-        try {
-            $this->conn = new PDO('mysql:host=' . $config['HOST'] . ';dbname=' .
-                $config['DBNAME'] . ';port=' . $config['PORT'], $config['USER_NAME'],
-                $config['PASSWORD'], $options);
-        } catch (PDOException $e) {
-            // Ak pripojenie zlyhá, ukončíme vykonávanie skriptu a zobrazíme chybové hlásenie
-            die("Chyba pripojenia: " . $e->getMessage());
-        }
+        $this->conn = $this->getConnection();
     }
 
     public function insertFilmFacts(){

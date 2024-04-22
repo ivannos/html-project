@@ -23,7 +23,7 @@
   <div class="container-fluid px-1 py-5 mx-auto">
     <div class="row d-flex justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-            <div class="card bg-dark text-primary">
+            <div class="card bg-<?php echo $theme ?> text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">
                 <h5 class="text-center mb-4">We appreciate your feedback</h5>
                 <form action="Thank You.html" class="form-card">
                     <div class="row justify-content-between text-left">
@@ -54,7 +54,7 @@
                     </div>
                     <div class="row justify-content-end">
                         <div class="form-group col-sm-6"> 
-                          <button type="submit" class="btn-block btn-primary">Submit</button> 
+                          <button type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">Submit</button> 
                         </div>
                     </div>
                 </form>

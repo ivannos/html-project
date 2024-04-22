@@ -34,10 +34,10 @@
   ?>
 
 <body class="bcgrd_image">
-  <h1 class="d-flex justify-content-center bg-primary rounded mt-3 text-center" style="width: 50%; margin: auto;">𝓕𝓐𝓢𝓒𝓘𝓝𝓐𝓣𝓘𝓝𝓖 𝓕𝓘𝓛𝓜 𝓕𝓐𝓒𝓣𝓢</h1>
+  <h1 class="d-flex justify-content-center bg-<?php echo $theme ?> text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?> rounded mt-3 text-center" style="width: 50%; margin: auto;">𝓕𝓐𝓢𝓒𝓘𝓝𝓐𝓣𝓘𝓝𝓖 𝓕𝓘𝓛𝓜 𝓕𝓐𝓒𝓣𝓢</h1>
 
   <section class="mt-5">
-    <div class="container bg-dark text-light rounded p-1">
+    <div class="container bg-<?php echo $theme ?> text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?> rounded p-1">
       <h2 class="text-center mb-4">Behind the Scenes</h2>
       <p class="text-center">
         Explore the magic that happens off-screen with our "Behind the Scenes" insights. Gain a deeper understanding of the filmmaking process and discover intriguing stories from the making of iconic movies. From scriptwriting challenges to on-set surprises, this section offers a glimpse into the creative minds and extraordinary efforts that bring your favorite films to life.
@@ -45,7 +45,7 @@
     </div>
   </section>
 
-  <table class="table table-primary table-striped mt-3 " style="width: 90%; margin: auto;">
+  <table class="table table-<?php echo $theme ?> table-striped mt-3 " style="width: 90%; margin: auto;">
     <thead>
       <tr>
           <th>Film Title</th>
@@ -59,9 +59,10 @@
     <tbody>
 
     <?php
+    $temp = ($theme == 'light') ? 'dark' : 'light';
       foreach ($FilmFactsData as $film) {
         echo '<tr>';
-          echo '<td> <a href="'.$film["link"].'" target="_blank">'.$film["name"].'</a></td>';
+          echo '<td> <a class = "text-'.$temp.'" href="'.$film["link"].'" target="_blank">'.$film["name"].'</a></td>';
           echo '<td>'.$film["release_year"].'</td>';
           echo '<td>'.$film["director"].'</td>';
           echo '<td>'.$film["genre"].'</td>';
@@ -70,7 +71,7 @@
       }
     ?>
     </tbody>
-    
+
   </table>
 
   <?php

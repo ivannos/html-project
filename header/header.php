@@ -1,4 +1,21 @@
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+<?php
+    // Check if theme is set in cookies
+    if(isset($_COOKIE['theme']) && $_COOKIE['theme'] === 'dark') {
+        $theme = 'dark';
+    } else {
+        $theme = 'light';
+    }
+
+    // Handle theme toggle
+    if(isset($_POST['toggle'])) {
+        $theme = $theme === 'dark' ? 'light' : 'dark';
+        setcookie('theme', $theme, time() + (86400 * 30), "/"); // Set cookie for 30 days
+        header('Location: ' . $_SERVER['PHP_SELF']); // Refresh page
+        exit;
+    }
+?>
+
+  <nav class="navbar navbar-expand-md navbar-<?php echo $theme ?> bg-<?php echo $theme ?> sticky-top">
     <div class="container-fluid">
       <p class="navbar-brand" href="#">
         <img src="image/logo.png" alt="" width="30" height="24">
@@ -19,6 +36,11 @@
           </li>
           <li class="nav-item">
             <a class="nav-link active text-center t" href="Contacts.php">Contacts</a>
+          </li>
+          <li class="nav-item">
+            <form method="post">
+                <button type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>" name="toggle"> <?php echo ucfirst($theme) ?> theme</button>
+            </form>
           </li>
         </ul>
       </div>
