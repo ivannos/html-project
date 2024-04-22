@@ -1,0 +1,75 @@
+{
+    "link": [
+        "https://www.imdb.com/title/tt0111161/",
+        "https://www.imdb.com/title/tt0034583/",
+        "https://www.imdb.com/title/tt0021749/",
+        "https://www.imdb.com/title/tt0032138/",
+        "https://www.imdb.com/title/tt0068646/",
+        "https://www.imdb.com/title/tt0054215/",
+        "https://www.imdb.com/title/tt0076759/",
+        "https://www.imdb.com/title/tt1375666/",
+        "https://www.imdb.com/title/tt0107290/",
+        "https://www.imdb.com/title/tt0133093/"
+    ],
+    "name": [
+        "The Shawshank Redemption",
+        "Casablanca",
+        "City Lights",
+        "The Wizard of Oz",
+        "The Godfather",
+        "Psycho",
+        "Star Wars",
+        "Inception",
+        "Jurassic Park",
+        "The Matrix"
+    ],
+    "release_year": [
+        "1994", 
+        "1942", 
+        "1931", 
+        "1939", 
+        "1972", 
+        "1960", 
+        "1977", 
+        "2010", 
+        "1993", 
+        "1999"
+    ],
+    "director": [
+        "Frank Darabont",
+        "Michael Curtiz",
+        "Charlie Chaplin",
+        "Victor Fleming",
+        "Francis Ford Coppola",
+        "Alfred Hitchcock",
+        "George Lucas",
+        "Christopher Nolan",
+        "Steven Spielberg",
+        "Lana Wachowski, Lilly Wachowski"
+    ],
+    "genre": [
+        "Drama",
+        "Drama, Romance, War",
+        "Comedy, Drama, Romance",
+        "Adventure, Family, Fantasy",
+        "Crime, Drama",
+        "Horror, Mystery, Thriller",
+        "Action, Adventure, Fantasy",
+        "Action, Adventure, Sci-Fi",
+        "Adventure, Sci-Fi, Thriller",
+        "Action, Sci-Fi"
+    ],
+    "interesting_fact": [
+        "Based on the novella by Stephen King, this film initially struggled at the box office but gained widespread acclaim later.",
+        "The script was written as the movie was being filmed, and the ending was undecided until late in the production.",
+        "A silent film released well into the era of talkies, and it remains one of Charlie Chaplin's masterpieces.",
+        "One of the first films to use Technicolor, transitioning from sepia tones to full color in the journey to Oz.",
+        "The severed horse head in the film was a real horse head sourced from a dog food company.",
+        "The famous shower scene was shot with 78 camera setups and 52 cuts in just three minutes.",
+        "The iconic opening crawl was inspired by the Flash Gordon serials, and George Lucas had to fight to keep it in the film.",
+        "The rotating hallway fight scene was a practical effect using a rotating set, not CGI.",
+        "The T-Rex roar is a combination of the sounds of a baby elephant, a tiger, and an alligator.",
+        "The falling green code is a combination of symbols from Japanese, Korean, and Chinese languages."
+    ]
+
+}
