@@ -1,13 +1,23 @@
 <?php
-  require_once('classes/FilmFacts.php');
 
-  // Zadefinujeme namespace
-  use filmfacts\FilmFacts;
+require_once('classes/FilmFacts.php');
+use filmfacts\FilmFacts;
 
-  // Insertovanie do databázy
-  $filmfacts = new FilmFacts();
-  $filmfacts->insertFilmFacts();
+$id = intval($_GET['id']); // Get ID from URL and convert to integer
+$FilmFacts = new FilmFacts();
 
+$row = $FilmFacts->getFilmFactsById($id);
+if (!$row) {
+    echo 'Otázka s daným ID nebola nájdená.';
+    exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Process submitted form
+    $FilmFacts->deleteFilmFacts($id);
+    header('Location: ./FilmFacts.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -42,26 +52,23 @@
     </div>
   </section>
 
-  <table class="table table-<?php echo $theme ?> table-striped mt-3 " style="width: 90%; margin: auto;">
-    <thead>
-      <tr>
-          <th>Film Title</th>
-          <th>Year Released</th>
-          <th>Director</th>
-          <th>Genre</th>
-          <th>Interesting Fact</th>
-      </tr>
-    </thead>
-
-    <tbody>
-
-    <?php
-      $filmfacts = new FilmFacts();
-      $filmfacts->showFilmFacts();
-    ?>
-    </tbody>
-
-  </table>
+<body class="bcgrd_image">
+  <div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <div class="card bg-<?php echo $theme ?> text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">
+                <h5 class="text-center mb-4">Change the film fact</h5>
+                <form action="edit_filmfacts.php?id=<?php echo $id ?>" method="post" class="form-card">
+                    <div class="row justify-content-end">
+                        <div class="form-group col-sm-6"> 
+                          <button type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">Change</button> 
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div> 
 
   <?php
     include 'footer/footer.php';

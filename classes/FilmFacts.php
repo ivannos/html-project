@@ -12,6 +12,7 @@ require_once(__ROOT__.'/classes/Database.php');
 
 use PDO;
 use Database;
+use Exception;
 
 // Definujeme triedu QnA v rámci namespace otazkyodpovede
 class FilmFacts extends Database {
@@ -87,23 +88,95 @@ class FilmFacts extends Database {
             $this->conn = null;
         }
     }
+
+    public function updateFilmFacts($id, $link, $name, $release_year, $director, $genre, $interesting_fact) {
+        // Check if ID is numeric
+        if (!is_numeric($id)) {
+            echo 'ID otázky musí byť číslo.';
+            exit;
+        }
     
-    // Metóda pre získanie otázok a odpovedí z databázy.
-    public function getFilmFacts() {
-        try {
-            $stmt = $this->conn->query("SELECT * FROM film_facts");
+        // Prepare the SQL statement
+        $sql = "UPDATE film_facts SET
+                link = :link,
+                name = :name,
+                release_year = :release_year,
+                director = :director,
+                genre = :genre,
+                interesting_fact = :interesting_fact
+                WHERE id = :id";
+        $statement = $this->conn->prepare($sql);
+    
+        // Bind parameters to the statement
+        $statement->bindParam(':id', $id);
+        $statement->bindParam(':link', $link);
+        $statement->bindParam(':name', $name);
+        $statement->bindParam(':release_year', $release_year);
+        $statement->bindParam(':director', $director);
+        $statement->bindParam(':genre', $genre);
+        $statement->bindParam(':interesting_fact', $interesting_fact);
+    
+        // Execute the statement
+        $statement->execute();
+    }
 
-            // Načítanie všetkých riadkov z databázy
-            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    public function getFilmFactsById($id) {
+        // Check if ID is numeric
+        if (!is_numeric($id)) {
+            echo 'ID otázky musí byť číslo.';
+            exit;
+        }
+    
+        // Prepare the SQL statement
+        $sql = "SELECT * FROM film_facts WHERE id = :id";
+        $statement = $this->conn->prepare($sql);
+    
+        // Bind the parameter to the statement
+        $statement->bindParam(':id', $id);
+    
+        // Execute the statement
+        $statement->execute();
+    
+        // Fetch the data as an associative array
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+    
+        // Return the data
+        return $row;
+    }
 
-            // Vrátenie načítaných údajov
-            return $data;
-        } catch (PDOException $e) {
-            echo "Chyba: " . $e->getMessage();
-            return false;
-        } finally {
-            $this->conn = null;
+    public function showFilmFacts() {
+        $sql = "SELECT * FROM film_facts";
+        $statement = $this->conn->prepare($sql);
+        $statement->execute();
+    
+        // Fetch all data as an associative array
+        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+    
+        // Create a new Users object and check if the user is an admin
+            // Loop through the data and display each question with edit and delete buttons
+        foreach ($data as $row) {
+            echo '<tr>';
+                echo '<td> <a class = "text-primary" href="'.$row["link"].'" target="_blank">'.$row["name"].'</a></td>';
+                echo '<td>'.$row["release_year"].'</td>';
+                echo '<td>'.$row["director"].'</td>';
+                echo '<td>'.$row["genre"].'</td>';
+                echo '<td>'.$row["interesting_fact"].'</td>';
+                echo '<td><a href="edit_filmfacts.php?id=' . $row["id"].'">Editovat</a></td>';
+                echo '<td><a href="delete_filmfacts.php?id=' . $row["id"].'">Vymazať</a></td>';
+            echo '</tr>';
         }
     }
+    public function deleteFilmFacts ($id) {
+        if (!is_numeric($id)) {
+            echo 'ID otázky musí byť číslo.';
+            exit;
+        }
+        
+        $sql = "DELETE FROM film_facts WHERE id = :id"; 
+        $statement = $this->conn->prepare($sql);
+        
+        $statement->bindParam('id', $id); 
+        $statement->execute();
+        }
 }
 ?>
