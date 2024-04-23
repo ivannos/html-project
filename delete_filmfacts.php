@@ -57,13 +57,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="row d-flex justify-content-center">
         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
             <div class="card bg-<?php echo $theme ?> text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">
-                <h5 class="text-center mb-4">Change the film fact</h5>
-                <form action="edit_filmfacts.php?id=<?php echo $id ?>" method="post" class="form-card">
-                    <div class="row justify-content-end">
-                        <div class="form-group col-sm-6"> 
-                          <button type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">Change</button> 
-                        </div>
-                    </div>
+                <h5 class="text-center mb-4">Delete film fact</h5>
+                <form action="delete_filmfacts.php?id=<?php echo $id ?>" method="post" class="form-card">
+                  <button type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">Delete</button> 
+                <form action="FilmFacts.php" method="post" class="form-card">
+                  <button type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">Keep</button> 
                 </form>
             </div>
         </div>
