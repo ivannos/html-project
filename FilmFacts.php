@@ -5,8 +5,23 @@
   use filmfacts\FilmFacts;
 
   // Insertovanie do databázy
+
+
+  session_start();
+
+  // Check if a flag indicating the first visit is set in the session
+  if (!isset($_SESSION['visited'])) {
+      // Code to execute only on the first visit
+      // For example:
+      $filmfacts = new FilmFacts();
+      $filmfacts->insertFilmFacts();
+
+      // Set the flag to indicate the user has visited
+      $_SESSION['visited'] = true;
+  }
+
+  // Načítavanie z databázy
   $filmfacts = new FilmFacts();
-  $filmfacts->insertFilmFacts();
 
 ?>
 
@@ -56,12 +71,15 @@
     <tbody>
 
     <?php
-      $filmfacts = new FilmFacts();
-      $filmfacts->showFilmFacts();
+    $filmfacts->showFilmFacts();
     ?>
     </tbody>
 
   </table>
+
+  <div class="mt-2 mb-2" style="width: 90%; margin: auto">
+    <button onclick="window.location.href = 'add_filmfacts.php'" type="button" class="text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?> btn btn-<?php echo $theme ?>">ADD FILM FACT 😊 </button>
+  </div>
 
   <?php
     include 'footer/footer.php';

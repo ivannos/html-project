@@ -166,6 +166,25 @@ class FilmFacts extends Database {
             echo '</tr>';
         }
     }
+
+    public function addFilmFacts($link, $name, $release_year, $director, $genre, $interesting_fact){
+        // Prepare the SQL statement
+        $sql = "INSERT INTO film_facts (link, name, release_year, director, genre, interesting_fact) 
+            VALUES (:link, :name, :release_year, :director, :genre, :interesting_fact)";
+        $statement = $this->conn->prepare($sql);
+    
+        // Bind parameters to the statement
+        $statement->bindParam(':link', $link);
+        $statement->bindParam(':name', $name);
+        $statement->bindParam(':release_year', $release_year);
+        $statement->bindParam(':director', $director);
+        $statement->bindParam(':genre', $genre);
+        $statement->bindParam(':interesting_fact', $interesting_fact);
+    
+        // Execute the statement
+        $statement->execute();
+    }
+
     public function deleteFilmFacts ($id) {
         if (!is_numeric($id)) {
             echo 'ID otázky musí byť číslo.';

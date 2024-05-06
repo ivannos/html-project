@@ -3,32 +3,12 @@
 require_once('classes/FilmFacts.php');
 use filmfacts\FilmFacts;
 
-$id = intval($_GET['id']); // Get ID from URL and convert to integer
 $FilmFacts = new FilmFacts();
 
-$row = $FilmFacts->getFilmFactsById($id);
-if (!$row) {
-  echo $id;
-    echo 'Otázka s daným ID nebola nájdená.';
-    exit;
-}
-
-if(isset($_COOKIE['theme']) && $_COOKIE['theme'] === 'dark') {
-  $theme = 'dark';
-} else {
-  $theme = 'light';
-}
-
-if(isset($_POST['toggle'])) {
-  $theme = $theme === 'dark' ? 'light' : 'dark';
-  setcookie('theme', $theme, time() + (86400 * 30), "/"); // Set cookie for 30 days
-  header('Location: ' . "edit_filmfacts.php?id=" . $id); // Refresh page
-  exit;
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['EDIT'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ADD'])) {
     // Process submitted form
-    $FilmFacts->updateFilmFacts($id, $_POST['link'], $_POST['name'], $_POST['release_year'], $_POST['director'], $_POST['genre'], $_POST['interesting_fact']);
+    
+    $FilmFacts->addFilmFacts($_POST['link'], $_POST['name'], $_POST['release_year'], $_POST['director'], $_POST['genre'], $_POST['interesting_fact']);
     header('Location: ./FilmFacts.php');
     exit;
 }
@@ -72,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['EDIT'])) {
         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
             <div class="card bg-<?php echo $theme ?> text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">
                 <h5 class="text-center mb-4">Change the film fact</h5>
-                <form action="edit_filmfacts.php?id=<?php echo $id ?>" method="post" class="form-card">
+                <form action="add_filmfacts.php" method="post" class="form-card">
                     <div class="row justify-content-between text-left">
                         <div class="form-group col-sm-6 flex-column d-flex"> 
                           <label  for="link" class="form-control-label px-3">Link<span class="text-danger"> *</span></label> 
@@ -103,9 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['EDIT'])) {
                           <textarea id="interesting_fact" name="interesting_fact"></textarea>
                         </div>
                     </div>
-                    <div class="row justify-content-end">
+                    <div class="row justify-content-center">
                         <div class="form-group col-sm-6"> 
-                          <button name="EDIT" type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">CHANGE</button> 
+                          <button name="ADD" type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">ADD</button> 
                         </div>
                     </div>
                 </form>

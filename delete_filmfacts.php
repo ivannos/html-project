@@ -12,7 +12,20 @@ if (!$row) {
     exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if(isset($_COOKIE['theme']) && $_COOKIE['theme'] === 'dark') {
+  $theme = 'dark';
+} else {
+  $theme = 'light';
+}
+
+if(isset($_POST['toggle'])) {
+  $theme = $theme === 'dark' ? 'light' : 'dark';
+  setcookie('theme', $theme, time() + (86400 * 30), "/"); // Set cookie for 30 days
+  header('Location: ' . "delete_filmfacts.php?id=" . $id); // Refresh page
+  exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST'  && isset($_POST['DELETE'])) {
     // Process submitted form
     $FilmFacts->deleteFilmFacts($id);
     header('Location: ./FilmFacts.php');
@@ -59,10 +72,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="card bg-<?php echo $theme ?> text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">
                 <h5 class="text-center mb-4">Delete film fact</h5>
                 <form action="delete_filmfacts.php?id=<?php echo $id ?>" method="post" class="form-card">
-                  <button type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">Delete</button> 
-                <form action="FilmFacts.php" method="post" class="form-card">
-                  <button type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">Keep</button> 
-                </form>
+                  <button name="DELETE" type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">DELETE</button>
+                </form> 
+                <div class="form-group col-sm-6"> 
+                    <form action="FilmFacts.php" method="post" class="form-card">
+                        <button type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">KEEP</button> 
+                    </form>
+                </div>
             </div>
         </div>
     </div>
