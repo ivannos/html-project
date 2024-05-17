@@ -37,11 +37,24 @@
           <li class="nav-item">
             <a class="nav-link active text-center t" href="Contacts.php">Contacts</a>
           </li>
+
+          <li class="nav-item"></li>
+          <?php
+          session_start();
+          if (isset($_SESSION['login'])) {
+              echo '<a class="nav-link active text-center t" href="db/logout.php">Prihlásený: ' . $_SESSION['login'] . ' (' . $_SESSION['role'] . ')</a>';
+          } else {
+              echo '<a class="nav-link active text-center t" href="signin.php">Prihlásiť/Registrovat</a>';
+          }
+          ?>
+          </li>
+          
           <li class="nav-item">
             <form method="post">
                 <button type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>" name="toggle"> <?php echo ucfirst($theme) ?> theme</button>
             </form>
           </li>
+
         </ul>
       </div>
     </div>

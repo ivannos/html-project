@@ -21,13 +21,13 @@
 
 <body class="bcgrd_image">
 
-  <h1 class="text-center d-flex justify-content-center bg-primary rounded mt-3" style="width: 50%; margin: auto;">𝓨𝓞𝓤𝓡 𝓕𝓔𝓔𝓓𝓑𝓐𝓒𝓚 𝓘𝓢 𝓗𝓘𝓖𝓗𝓛𝓨 𝓐𝓟𝓟𝓡𝓔𝓒𝓘𝓐𝓣𝓔𝓓</h1>
+  <h1 class="text-center d-flex justify-content-center bg-<?php echo $theme ?> text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?> rounded mt-3" style="width: 50%; margin: auto;">𝓨𝓞𝓤𝓡 𝓕𝓔𝓔𝓓𝓑𝓐𝓒𝓚 𝓘𝓢 𝓗𝓘𝓖𝓗𝓛𝓨 𝓐𝓟𝓟𝓡𝓔𝓒𝓘𝓐𝓣𝓔𝓓</h1>
 
   <div class="mt-3 d-flex justify-content-center">
     <img src="image/thumbsup.png" alt="">
   </div>
 
-  <div style="width: 80%; margin: auto;" class="card bg-dark text-light mt-3">
+  <div style="width: 80%; margin: auto;" class="card bg-<?php echo $theme ?> text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?> mt-3">
         <h4 class="card-title">Dear Reel Rover Community</h4>
         <p>We want to extend our sincerest thanks to you for being an integral part of our vibrant movie-loving community. Your passion for film and your engagement with Reel Rover truly make it a special place for all of us.</p>
         <p>Every click, every share, and every comment contribute to the tapestry of discussions and shared cinematic experiences that define Reel Rover. It's your enthusiasm that fuels our dedication to bringing you the latest movie news, insightful reviews, and captivating content.</p>
@@ -39,7 +39,6 @@
                 <p class="mb-0">Warm regards</p>
                 <p class="mb-0">The Reel Rover Team</p>
             </div>
-            <a class="mb-0" href="Main.html"> <button type="button" class="btn btn-primary text-dark">back</button></a>
         </div>
     </div>
   </div>

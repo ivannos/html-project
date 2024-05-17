@@ -7,8 +7,6 @@
   // Insertovanie do databázy
 
 
-  session_start();
-
   // Check if a flag indicating the first visit is set in the session
   if (!isset($_SESSION['visited'])) {
       // Code to execute only on the first visit
