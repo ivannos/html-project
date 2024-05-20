@@ -40,7 +40,7 @@
 
           <li class="nav-item"></li>
           <?php
-          session_start();
+          @session_start(); # a second call will do no harm, it will be simply ignored 😉 (aby mi nehádzalo warning že session už je spustený)
           if (isset($_SESSION['login'])) {
               echo '<a class="nav-link active text-center t" href="db/logout.php">Prihlásený: ' . $_SESSION['login'] . ' (' . $_SESSION['role'] . ')</a>';
           } else {

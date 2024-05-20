@@ -161,8 +161,10 @@ class FilmFacts extends Database {
                 echo '<td>'.$row["director"].'</td>';
                 echo '<td>'.$row["genre"].'</td>';
                 echo '<td>'.$row["interesting_fact"].'</td>';
-                echo '<td><a href="edit_filmfacts.php?id=' . $row["id"].'">Editovat</a></td>';
-                echo '<td><a href="delete_filmfacts.php?id=' . $row["id"].'">Vymazať</a></td>';
+                if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+                    echo '<td><a href="edit_filmfacts.php?id=' . $row["id"].'">Editovat</a></td>';
+                    echo '<td><a href="delete_filmfacts.php?id=' . $row["id"].'">Vymazať</a></td>';
+                }
             echo '</tr>';
         }
     }
