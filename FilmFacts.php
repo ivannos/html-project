@@ -77,7 +77,7 @@
 
   <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') : ?>
     <div class="mt-2 mb-2" style="width: 90%; margin: auto">
-      <button onclick="window.location.href = 'add_filmfacts.php'" type="button" class="text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?> btn btn-<?php echo $theme ?>">ADD FILM FACT 😊 </button>
+      <button onclick="window.location.href = 'add_filmfacts.php'" type="button" class="text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?> btn btn-<?php echo $theme ?>">ADD FILM FACT</button>
     </div>
   <?php endif; ?>
   
