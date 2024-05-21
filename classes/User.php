@@ -63,7 +63,7 @@ class Users extends Database {
             $_SESSION['user_id'] = $user['ID'];
             $_SESSION['login'] = $user['login'];
             $_SESSION['role'] = $user['role'];
-            header('Location: ./Thank You.php');
+            header('Location: ./Succesfull_login.php');
         } catch (Exception $e) {
             echo "Chyba pri prihlasovaní: " . $e->getMessage();
         }
@@ -73,7 +73,7 @@ class Users extends Database {
         session_start();
         session_unset();
         session_destroy();
-        header('Location: ../Main.php');
+        header('Location: ../Logout_page.php');
         exit();
     }
 
