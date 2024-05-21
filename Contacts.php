@@ -25,7 +25,7 @@
         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
             <div class="card bg-<?php echo $theme ?> text-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">
                 <h5 class="text-center mb-4">We appreciate your feedback</h5>
-                <form action="Thank You.php" class="form-card">
+                <form action="Thank You.php" method="post" class="form-card">
                     <div class="row justify-content-between text-left">
                         <div class="form-group col-sm-6 flex-column d-flex"> 
                           <label class="form-control-label px-3">First name<span class="text-danger"> *</span></label> 
@@ -54,7 +54,7 @@
                     </div>
                     <div class="row justify-content-end">
                         <div class="form-group col-sm-6"> 
-                          <button type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">Submit</button> 
+                          <button name="contact" type="submit" class="btn btn-<?php echo ($theme == 'light') ? 'dark' : 'light'; ?>">Submit</button> 
                         </div>
                     </div>
                 </form>

@@ -1,3 +1,17 @@
+<?php 
+
+require_once('classes/Contact.php');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact'])) {
+  // Process submitted form
+
+  $Contact = new Contact();
+  $Contact->sendMess($_POST['fname'], $_POST['lname'], $_POST['email'], $_POST['ans']);
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="sk">
 
