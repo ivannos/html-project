@@ -1,0 +1,96 @@
+{
+    "link" : [
+        "image/intrestelar.jpg",
+        "image/matrix.jpg",
+        "image/btf.jpg",
+        "image/dune.jpg",
+
+        "image/nttd.jpg",
+        "image/diehard.jpg",
+        "image/terminator.jpg",
+        "image/johnwick.jpg",
+
+        "image/hf.jpg",
+        "image/ngun.jpg",
+        "image/ghogday.jpg",
+        "image/tlh.jpg",
+
+        "image/tlh.jpg"
+    ],
+
+    "title" : [
+        "INTERSTELLAR",
+        "The Matrix",
+        "Back to the Future",
+        "Dune",
+
+        "No Time to Die",
+        "Die Hard",
+        "Terminator",
+        "John Wick",
+
+        "Hot Fuzz",
+        "The Naked Gun",
+        "Groundhog Day",
+        "The Last Hangover",
+
+        "The Last Hangover"
+    ],
+
+    "genre" : [
+        "Science Fiction, Adventure, Drama",
+        "Action, Sci-Fi",
+        "Adventure, Comedy, Sci-Fi",
+        "Adventure, Drama, Sci-Fi",
+
+        "Action, Adventure, Thriller",
+        "Action, Thriller",
+        "Action, Sci-Fi",
+        "Action, Crime, Thriller",
+
+        "Action, Comedy, Mystery",
+        "Comedy, Crime",
+        "Comedy, Drama, Fantasy",
+        "Comedy",
+
+        "Comedy"
+    ],
+
+    "director" : [
+        "Christopher Nolan",
+        "Lana Wachowski, Lilly Wachowski",
+        "Robert Zemeckis",
+        "Denis Villeneuve",
+
+        "Cary Joji Fukunaga",
+        "John McTiernan",
+        "James Cameron",
+        "Chad Stahelski",
+
+        "Edgar Wright",
+        "David Zucker",
+        "Harold Ramis",
+        "Rodrigo Van Der Put",
+
+        "Rodrigo Van Der Put"
+    ],
+
+    "rating" : [
+        "8.6/10",
+        "8.7/10",
+        "8.5/10",
+        "8.0/10",
+
+        "7.4/10",
+        "8.2/10",
+        "8.0/10",
+        "7.4/10",
+
+        "7.8/10",
+        "7.6/10",
+        "8.0/10",
+        "6.7/10",
+
+        "6.7/10"
+    ]
+}
