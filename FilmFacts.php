@@ -8,9 +8,11 @@
 
 
   // Check if a flag indicating the first visit is set in the session
+  session_start();
   if (!isset($_SESSION['visited'])) {
-      // Code to execute only on the first visit
-      // For example:
+    
+    $_SESSION['visited'] = true;
+
       $filmfacts = new FilmFacts();
       $filmfacts->insertFilmFacts();
 
